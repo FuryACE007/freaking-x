@@ -8,5 +8,6 @@ body {
 
 /* sign-in/signup card */
 .cl-card {
-  @apply bg-slate-800 text-slate-200 shadow-lg;
+  @apply bg-slate-400 bg-opacity-10 backdrop-blur-md text-slate-200 shadow-lg;
+  border: 0.1rem solid rgb(71 85 105 / var(--tw-bg-opacity));
 }

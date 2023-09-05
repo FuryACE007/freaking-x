@@ -5,11 +5,11 @@ import Link from "next/link";
 import { api } from "~/utils/api";
 
 export default function Home() {
-  const { data, isLoading, isError } = api.posts.getAll.useQuery();
+  const { data, isLoading } = api.posts.getAll.useQuery();
 
   if(isLoading) return <div>Loading...</div>
 
-  if(!data || isError) return <div>Error loading</div>
+  if(!data) return <div>Error loading</div>
 
   return (
     <>
