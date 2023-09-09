@@ -1,16 +1,17 @@
-import { UserButton } from "@clerk/nextjs";
+// import { UserButton } from "@clerk/nextjs";
 import Head from "next/head";
-import Link from "next/link";
+// import Link from "next/link";
 import CreatePostWidget from "~/components/CreatePostWidget";
+import PostView from "~/components/PostView";
 
 import { api } from "~/utils/api";
 
 export default function Home() {
   const { data, isLoading } = api.posts.getAll.useQuery();
 
-  if(isLoading) return <div>Loading...</div>
+  if (isLoading) return <div>Loading...</div>;
 
-  if(!data) return <div>Error loading</div>
+  if (!data) return <div>Error loading</div>;
 
   return (
     <>
@@ -24,7 +25,9 @@ export default function Home() {
         <div className=" flex h-screen w-full flex-col border-x border-slate-600 md:max-w-2xl">
           <CreatePostWidget />
           <div>
-            {data?.map((data) => <div key={data.id} className="px-5 py-7 border-y border-y-slate-600">{data.content}</div>)}
+            {data?.map((fullPost) => (
+              <PostView {...fullPost} />
+            ))}
           </div>
         </div>
       </main>

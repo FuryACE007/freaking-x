@@ -1,7 +1,6 @@
 import React from "react";
-import { UserButton } from "@clerk/nextjs";
+// import { UserButton } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs";
-import Image from "next/image";
 
 const CreatePostWidget = () => {
   const { user } = useUser();
@@ -10,7 +9,11 @@ const CreatePostWidget = () => {
       <div className=" flex p-6 border-b border-b-slate-600 sticky items-center">
         {/* <UserButton afterSignOutUrl="/" /> */}
         {user && user.imageUrl ? (
-          <img src={user?.imageUrl} alt="pfp" className=" w-[3rem] rounded-full" />
+          <img
+            src={user?.imageUrl}
+            alt="pfp"
+            className=" w-[3rem] rounded-full"
+          />
         ) : (
           <div>Loading..</div>
         )}
