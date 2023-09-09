@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 // import { UserButton } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs";
 
@@ -8,14 +9,16 @@ const CreatePostWidget = () => {
     <>
       <div className=" flex p-6 border-b border-b-slate-600 sticky items-center">
         {/* <UserButton afterSignOutUrl="/" /> */}
-        {user && user.imageUrl ? (
-          <img
+        {user?.imageUrl ? (
+          <Image
             src={user?.imageUrl}
             alt="pfp"
-            className=" w-[3rem] rounded-full"
+            width={50}
+            height={50}
+            className=" rounded-full"
           />
         ) : (
-          <div>Loading..</div>
+          <div className=" w-full items-center flex h-screen mx-auto">Loading..</div>
         )}
 
         <textarea

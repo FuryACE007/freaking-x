@@ -26,7 +26,7 @@ export default function Home() {
           <CreatePostWidget />
           <div>
             {data?.map((fullPost) => (
-              <PostView {...fullPost} />
+              <PostView {...fullPost} key={fullPost.post.id} />
             ))}
           </div>
         </div>
